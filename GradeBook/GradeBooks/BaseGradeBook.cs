@@ -9,7 +9,7 @@ using Newtonsoft.Json.Linq;
 
 namespace GradeBook.GradeBooks
 {
-    public class BaseGradeBook
+    public abstract class BaseGradeBook
     {
         public string Name { get; set; }
         public List<Student> Students { get; set; }
@@ -205,19 +205,7 @@ namespace GradeBook.GradeBooks
             }
         }
 
-        public virtual char GetLetterGrade(double averageGrade)
-        {
-            if (averageGrade >= 90)
-                return 'A';
-            else if (averageGrade >= 80)
-                return 'B';
-            else if (averageGrade >= 70)
-                return 'C';
-            else if (averageGrade >= 60)
-                return 'D';
-            else
-                return 'F';
-        }
+        public abstract char GetLetterGrade(double averageGrade);
 
         /// <summary>
         ///     Converts json to the appropriate gradebook type.
